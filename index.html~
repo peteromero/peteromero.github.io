@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peter Romero — Machine Psychology</title>
+</head>
+<body>
+  <h1>Machine Psychology</h1>
+  <p>This site represents the emerging field of <strong>Machine Psychology</strong>—a research program at the intersection of AI evaluation, psychometrics, and cognitive architectures. It builds on rigorous methods from behavioral science to understand and shape intelligent behavior in artificial systems.</p>
+
+  <h2>About Me</h2>
+  <p>I am Peter Romero, PhD, an AI scientist based at VRAIN and affiliated with the University of Cambridge. My work focuses on applying psychometrics to AI systems, with the goal of building robust frameworks for evaluating and shaping machine behavior. My background spans psychology, econometrics, and AI safety, and I am one of the early contributors to the field of machine personality and synthetic cognitive traits in LLMs.</p>
+
+  <p>This page will soon evolve into the public front of my labs and collaborations. For now, it marks the beginning.</p>
+</body>
+</html>
