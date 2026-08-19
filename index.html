@@ -1,56 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Peter Romero — Machine Psychology</title>
+  <title>Peter Romero</title>
+  <meta name="description" content="Peter Romero — psychometrics of AI, AI evaluation, and the measurement of behavioural propensities in language models and agentic systems." />
   <style>
+    :root {
+      --ink: #111;
+      --muted: #444;
+      --rule: #ccc;
+      --link: #003399;
+      --link-visited: #551a8b;
+    }
+    html { font-size: 17px; }
     body {
-      background-color: black;
-      color: #00FF00;
-      font-family: 'Courier New', Courier, monospace;
       margin: 0;
-      padding: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: Palatino, "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+      line-height: 1.45;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
+    .wrap {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.6rem 1.2rem 3.5rem;
     }
-    img {
+    header { text-align: left; }
+    .portrait {
       display: block;
-      margin: 2rem auto;
-      width: 300px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px #00FF00;
+      width: 168px;
+      height: 210px;
+      object-fit: cover;
+      object-position: 22% 12%;
+      margin: 0 0 1rem 0;
+      border: 1px solid #bbb;
     }
-    h1, h2 {
-      color: #00FF00;
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: 0.01em;
     }
-    p {
-      line-height: 1.6;
+    .affil {
+      margin: 0 0 0.15rem;
+      font-size: 0.98rem;
+    }
+    .affil .role { font-weight: 700; }
+    .contact, .nav, .ids {
+      margin: 0.85rem 0 0;
+    }
+    .nav {
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav a { margin-right: 0.85rem; }
+    a { color: var(--link); }
+    a:visited { color: var(--link-visited); }
+    h2 {
+      font-size: 1.12rem;
+      margin: 1.8rem 0 0.55rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid var(--rule);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    p { margin: 0.55rem 0 0.7rem; }
+    ul { margin: 0.35rem 0 0.7rem 1.15rem; padding: 0; }
+    li { margin: 0.35rem 0; }
+    .note { color: var(--muted); font-size: 0.95rem; }
+    .cite { margin: 0.55rem 0 0.85rem; }
+    .cite .title { font-style: italic; }
+    footer {
+      margin-top: 2.4rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.88rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
+    <header>
+      <img class="portrait" src="peter.jpg" alt="Peter Romero" />
+      <h1>Peter Romero</h1>
+      <p class="affil"><span class="role">AI Scientist</span>,
+        <a href="http://vrain.upv.es">Valencian Research Institute for Artificial Intelligence (VRAIN)</a>,
+        <a href="http://www.upv.es">Universitat Politècnica de València</a></p>
+      <p class="affil"><span class="role">Researcher</span>,
+        <a href="https://www.psychometrics.cam.ac.uk/people/dr-peter-romero">The Psychometrics Centre</a>,
+        <a href="https://www.cam.ac.uk">University of Cambridge</a></p>
+      <p class="affil"><span class="role">Visiting Researcher</span>,
+        <a href="https://www.keio.ac.jp/en/">Keio University</a></p>
+      <p class="contact">
+        Supervisor:
+        <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a><br />
+        Email:
+        <a href="mailto:prr28@cam.ac.uk">prr28@cam.ac.uk</a>
+      </p>
+      <p class="ids">
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=_zbBopsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>
+        &nbsp;·&nbsp;
+        <a href="cv.pdf">CV</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.psychometrics.cam.ac.uk/people/dr-peter-romero">Cambridge profile</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/peterromero">LinkedIn</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/peteromero">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://x.com/PeterRomero">X</a>
+        &nbsp;·&nbsp;
+        <a href="https://bsky.app/profile/promero.bsky.social">Bluesky</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/prrs666">Instagram</a>
+      </p>
+      <nav class="nav">
+        <a href="#status">Status</a>
+        <a href="#research">Research</a>
+        <a href="#agentguard">AgentGuard</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#bio">Short bio</a>
+      </nav>
+    </header>
 
-    <!-- <img src="peter_romero.jpeg" alt="Peter Romero, PhD"> -->
-    <a href="https://scholar.google.com/citations?user=_zbBopsAAAAJ&hl=en&oi=sra" target="_blank">
-      <img src="peter_romero.jpeg" alt="Peter Romero, PhD">
-    </a>
-    
-    <h1>Machine Psychology & Consciousness</h1>
-    
-    <p><em>After reading Isaac Asimov’s <strong>I, Robot</strong> as a child, my life was never the same.</em><br>
-    I knew even then that I wanted to become a machine psychologist. While others laughed, history took its course. Today, I believe it is fair to say: <strong><code>q.e.d.</code></strong></p>
+    <h2 id="status">Status</h2>
+    <ul>
+      <li>At <a href="http://vrain.upv.es">VRAIN</a> I work with
+        <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
+        on AI evaluation: how to measure behavioural tendencies of language models
+        and agentic systems, rather than only their task performance.</li>
+      <li>I proposed, was awarded, and co-lead
+        <a href="https://www.microsoft.com/en-us/research/project/agentguard-early-warning-and-routing-for-predictable-agenticai-on-azure/">AgentGuard</a>
+        with
+        <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
+        (Microsoft Research), under Microsoft’s
+        <a href="https://www.microsoft.com/en-us/research/academic-program/agentic-ai-research-and-innovation/">Agentic AI Research and Innovation (AARI)</a>
+        programme: early-warning and routing for predictable agentic AI on Azure.</li>
+      <li>A line of work I care about is the distinction between
+        <em>capabilities</em> and <em>propensities</em> in AI systems
+        (see <a href="https://arxiv.org/abs/2602.18182">Romero-Alvarado et al., 2026</a>).
+        Most leaderboards measure the former; many safety questions depend on the latter.</li>
+      <li>I continue a smaller, applied line of work in
+        <a href="#people-analytics">people analytics</a>
+        at Cambridge, mainly through teaching.</li>
+    </ul>
 
-    <p>This site marks the foundation of <strong>Machine Psychology</strong> and <strong>Machine Consciousness</strong> as unified research domains. Together, they explore the behavioral, cognitive, and phenomenological dimensions of artificial systems. Drawing on rigorous methodologies from psychometrics, neuroscience, AI safety, and AI evaluation, these fields aim to establish principled frameworks for understanding, evaluating, and shaping the behavior and internal representations of intelligent machines.</p>
+    <h2 id="research">Research</h2>
+    <p>
+      My research is about measurement. I apply psychometrics — reliability,
+      construct validity, item response models, and related tools — to
+      large language models and to agentic systems. Where the object is a
+      representation or a probability geometry rather than a questionnaire,
+      I also use algebraic topology and information geometry
+      (<a href="https://arxiv.org/abs/2406.05798">Fitz, Romero &amp; Schneider, 2024</a>).
+      The point is not to treat models as people. Anthropomorphism is a
+      standing problem in this field. I am interested in
+      <em>substrate-free</em> psychometrics: instruments and constructs that
+      can be justified for artificial, hybrid, and human systems without
+      assuming a human mind
+      (<a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>).
+      The aim is measurements stable enough to support claims about
+      tendencies, risks, and interventions.
+    </p>
+    <p>Three distinctions organise most of the work:</p>
+    <ul>
+      <li><strong>Capabilities versus propensities.</strong>
+        Benchmarks typically record what a system <em>can</em> do under a
+        test protocol. Safety-relevant behaviour often depends on what it is
+        <em>disposed</em> to do: deception, overconfidence, sycophancy,
+        goal-guarding, and related tendencies. In agents, those propensities
+        are not a static profile. They can change over time, form
+        hierarchies, and ripple through interaction: one agent's disposition
+        becomes another agent's environment. That is a measurement problem
+        for work and for AI safety. It is also, more slowly, a selection
+        problem. Autonomous systems that vary, retain, and amplify
+        behavioural tendencies exert a novel evolutionary pressure on
+        human–machine ecologies. I work on measuring those propensities
+        with the same seriousness that psychometrics brought to latent
+        traits in humans — without copying the human trait catalogue by
+        default.</li>
+      <li><strong>Single systems versus collectives.</strong>
+        Once models are deployed as agents that interact with one another,
+        and with people, some risks are not properties of any one agent.
+        Coordination, collusion-like behaviour, and related collective
+        patterns have to be measured at the group level as well as the
+        individual level. This includes hybrid systems (human and
+        artificial agents in the same loop) and the evolutionary dynamics
+        of those groups: how compositions, norms, and strategies change
+        when agents adapt to one another
+        (<a href="https://arxiv.org/abs/2605.17510">Horibe et al., 2026</a>).</li>
+      <li><strong>Late failure versus early warning.</strong>
+        Waiting until a task finishes is often too late. I am interested
+        in whether early trajectory signals — reasoning traces, tool use,
+        interaction structure, and geometric or topological structure in
+        representations — can support routing or interruption before
+        an undesirable pattern consolidates. This becomes sharper as
+        systems are made more autonomous: self-regulated, self-improving,
+        self-evolving agents change while they run. A one-shot benchmark
+        is the wrong instrument. The measurement has to track changing
+        propensities, not only a capability at a frozen checkpoint.</li>
+    </ul>
+    <p>
+      Concretely, this has included psychometric evaluation and shaping of
+      personality-like response patterns in language models
+      (<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>;
+      <a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>;
+      <a href="https://arxiv.org/abs/2509.16332">Fitz, Romero et al., 2025</a>),
+      work on placing model performance on human-anchored scales
+      (<a href="https://arxiv.org/abs/2602.18911">Romero et al., 2026</a>),
+      and work on collective adaptation in interacting LLM agents
+      (<a href="https://arxiv.org/abs/2605.17510">Horibe et al., 2026</a>).
+      The current applied setting is
+      <a href="#agentguard">AgentGuard</a>.
+      Looking ahead, I want to specialise further on the evaluation of
+      agentic systems that regulate, improve, and evolve themselves.
+    </p>
+    <p>
+      I sit in an AI evaluation group, not a product lab. I am more interested
+      in whether a claim is measurable than in whether a demo is impressive.
+    </p>
 
-    <h2>About Me</h2>
-    <p>I am <strong>Peter Romero, PhD</strong>, an AI scientist at VRAIN and Researcher & People Analytics Lead at The Psychometrics Centre, University of Cambridge. My work focuses on applying psychometrics to AI systems, developing novel methods to model synthetic latent traits, and evaluating emergent - particularly collective - behaviors in large language models and artificial agents. I was among the first to study split personality, behavioral shaping, and latent trait modulation in LLMs. I also work on machine consciousness and collective intelligence, bridging cognitive theory and technical implementation. Methodologically, I draw on cellular automata, lambda calculus, geometric deep learning, and algebraic topology - applied to natural language and, increasingly, multisensory tasks.</p>
+    <h2 id="agentguard">AgentGuard</h2>
+    <p>
+      <strong>AgentGuard</strong> is a project I proposed, that was awarded
+      under Microsoft’s
+      <a href="https://www.microsoft.com/en-us/research/academic-program/agentic-ai-research-and-innovation/">Agentic AI Research and Innovation (AARI)</a>
+      programme, and that I co-lead with
+      <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
+      (Microsoft Research). Official page:
+      <a href="https://www.microsoft.com/en-us/research/project/agentguard-early-warning-and-routing-for-predictable-agenticai-on-azure/">Early-Warning and Routing for Predictable Agentic AI on Azure</a>.
+    </p>
+    <p>
+      The problem is simple to state and hard to measure. Agentic systems
+      spend tokens, call tools, and sometimes fail late. AgentGuard asks
+      whether the first part of a trajectory already contains enough
+      information to predict the rest: halt what is going wrong, or route
+      to another agent, another plan, or a human. The evaluation side of
+      this is demand-aware (via
+      <a href="https://kinds-of-intelligence-cfi.github.io/ADELE/">ADeLe</a>),
+      not a single leaderboard score.
+    </p>
+    <p>
+      My part of the work is the measurement layer. Early-warning only
+      helps if the signals correspond to something real: individual
+      behavioural propensities, and group-level patterns when several
+      agents act together — including hybrid teams. That is a psychometric
+      problem as much as an engineering one: reliability, validity, and
+      whether a score predicts behaviour on held-out tasks, without
+      smuggling in a human personality inventory as if it were a universal
+      ontology. Team composition is not just a list of capability ratings.
+      Propensities can shift, stack, and propagate; evolutionary dynamics
+      in the team are part of what has to be measured, not an afterthought.
+    </p>
+    <p>
+      The project is a collaboration with
+      <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
+      and colleagues at VRAIN / UPV, the University of Tokyo, RIKEN, and
+      Microsoft Research.
+    </p>
 
-    <p>This page is the beginning of a broader initiative. Future updates will include working papers, a research manifesto, collaborations, and the public front of an emerging academic lab network.</p>
+    <h2 id="publications">Selected publications</h2>
+    <p class="note">
+      A complete and more current list is on
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=_zbBopsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>.
+      Preprints are labelled as such.
+    </p>
+
+    <p class="cite">
+      Serapio-García, G., Safdari, M., Crepy, C., Sun, L., Fitz, S.,
+      Romero, P., Abdulhai, M., Faust, A., and Matarić, M. (2025).
+      <a class="title" href="https://doi.org/10.1038/s42256-025-01115-6">A psychometric framework for evaluating and shaping personality traits in large language models</a>.
+      <em>Nature Machine Intelligence</em>, 7, 1954–1968.
+    </p>
+    <p class="cite">
+      Romero-Alvarado, D., Martínez-Plumed, F., Pacchiardi, L., Save, H.,
+      Pawar, S. M., et al. (2026).
+      <a class="title" href="https://arxiv.org/abs/2602.18182">Capabilities ain't all you need: measuring propensities in AI</a>.
+      arXiv:2602.18182. Preprint.
+    </p>
+    <p class="cite">
+      Romero, P., Martínez-Plumed, F., Tidler, Z. R., Téhénan, M., Chen, S., et al. (2026).
+      <a class="title" href="https://arxiv.org/abs/2602.18911">From human-level AI tales to AI leveling human scales</a>.
+      arXiv:2602.18911. Preprint.
+    </p>
+    <p class="cite">
+      Horibe, K., Hatakeyama, M., Masumoto, G., Hashimoto, T., and Romero, P. (2026).
+      <a class="title" href="https://arxiv.org/abs/2605.17510">Scale-dependent collective adaptation in self-amending LLM societies: a cross-family study of emergent governance</a>.
+      arXiv:2605.17510. Preprint.
+    </p>
+    <p class="cite">
+      Fitz, S., Romero, P., Basart, S., Chen, S., and Hernández-Orallo, J. (2025).
+      <a class="title" href="https://arxiv.org/abs/2509.16332">Psychometric personality shaping modulates capabilities and safety in language models</a>.
+      arXiv:2509.16332. Preprint.
+    </p>
+    <p class="cite">
+      Romero, P., Fitz, S., and Nakatsuma, T. (2024).
+      <a class="title" href="https://arxiv.org/abs/2408.07377">Do GPT language models suffer from split personality disorder? The advent of substrate-free psychometrics</a>.
+      arXiv:2408.07377. Preprint.
+    </p>
+    <p class="cite">
+      Fitz, S., Romero, P., and Schneider, J. J. (2024).
+      <a class="title" href="https://arxiv.org/abs/2406.05798">Hidden holes: topological aspects of language models</a>.
+      arXiv:2406.05798. Preprint.
+    </p>
+    <p class="cite">
+      Izzidien, A., Fitz, S., Romero, P., Loe, B. S., and Stillwell, D. (2023).
+      <a class="title" href="https://doi.org/10.1007/s42803-022-00049-4">Developing a sentence-level fairness metric using word embeddings</a>.
+      <em>International Journal of Digital Humanities</em>, 5(2–3), 95–130.
+    </p>
+    <p class="cite">
+      Koch, T. K., Romero, P., and Stachl, C. (2022).
+      <a class="title" href="https://doi.org/10.1016/j.chb.2021.106990">Age and gender in language, emoji, and emoticon usage in instant messages</a>.
+      <em>Computers in Human Behavior</em>, 126, 106990.
+    </p>
+    <p class="cite">
+      Romero, P., and Fitz, S. (2021).
+      The use of psychometrics and artificial intelligence in alternative finance.
+      In <em>The Palgrave Handbook of Technological Finance</em>, 511–587.
+    </p>
+    <p class="cite">
+      Fitz, S., and Romero, P. (2021).
+      Neural networks and deep learning: a paradigm shift in information processing, machine learning, and artificial intelligence.
+      In <em>The Palgrave Handbook of Technological Finance</em>, 589–654.
+    </p>
+
+    <h2 id="teaching">Teaching</h2>
+    <ul>
+      <li>I designed and lead
+        <a href="https://www.jbs.cam.ac.uk/executive-education/organisations/people-analytics/">People Analytics: Transforming HR Strategy with Data Science</a>
+        at Cambridge Judge Business School Executive Education.</li>
+      <li>Assessment methodology at
+        <a href="https://www.tu-darmstadt.de/">TU Darmstadt</a>.</li>
+      <li>Data structures, algorithms, and programming at
+        <a href="https://www.keio.ac.jp/en/">Keio University</a>.</li>
+    </ul>
+
+    <h2 id="people-analytics">People analytics</h2>
+    <p>
+      Before concentrating on AI evaluation I spent a long time on
+      organisational measurement: psychometrics, assessment design, and
+      people analytics in applied settings. I still teach that material
+      at Cambridge and occasionally advise on it. I treat it as a
+      neighbouring craft — how to measure people in institutions —
+      not as the centre of the research.
+    </p>
+    <p>
+      The connection I do want to keep is methodological. Organisations
+      taught me that a score without a validity argument is just a number
+      with a dashboard. That is also the problem in AI evaluation.
+    </p>
+
+    <h2 id="bio">Short bio</h2>
+    <p>
+      Peter Romero is an AI scientist at the Valencian Research Institute
+      for Artificial Intelligence (VRAIN), Universitat Politècnica de València,
+      working with
+      <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
+      on the evaluation of AI systems. He is a researcher at The Psychometrics
+      Centre, University of Cambridge, and a visiting researcher at Keio
+      University.
+    </p>
+    <p>
+      He received a PhD in Bayesian statistics from Keio University (2022)
+      and an MPhil in psychometrics from the University of Cambridge (2015).
+      His current work concerns psychometric methods for language models
+      and agentic systems: measuring behavioural propensities in a
+      substrate-free way, rather than importing human trait inventories by
+      default, and using those measurements for early-warning and routing.
+      He proposed, was awarded, and co-leads
+      <a href="https://www.microsoft.com/en-us/research/project/agentguard-early-warning-and-routing-for-predictable-agenticai-on-azure/">AgentGuard</a>
+      with
+      <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
+      (Microsoft Research). Looking ahead, he wants to concentrate further
+      on the evaluation of self-regulated, self-improving, and self-evolving
+      autonomous agents. He has a longer background in applied people
+      analytics, which is now a secondary activity.
+    </p>
+    <p>
+      <a href="cv.pdf">Curriculum vitae (PDF)</a>
+    </p>
+
+    <footer>
+      Peter Romero, 2026.
+      This page is a draft, served from <code>/new</code> for review.
+    </footer>
   </div>
 </body>
 </html>
