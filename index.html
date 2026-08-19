@@ -15,12 +15,24 @@
       --rule: #ccc;
       --link: #003399;
       --link-visited: #551a8b;
+      --bg: #fff;
+      --btn-border: #bbb;
     }
-    html { font-size: 17px; }
+    html[data-theme="dark"] {
+      --ink: #ece7dc;
+      --muted: #a8a196;
+      --rule: #4a463f;
+      --link: #8fb4ff;
+      --link-visited: #c9a6e8;
+      --bg: #1a1814;
+      --btn-border: #6e695f;
+      color-scheme: dark;
+    }
+    html { font-size: 17px; color-scheme: light; }
     body {
       margin: 0;
       color: var(--ink);
-      background: #fff;
+      background: var(--bg);
       font-family: Palatino, "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
       line-height: 1.45;
     }
@@ -37,7 +49,7 @@
       object-fit: cover;
       object-position: 22% 12%;
       margin: 0 0 1rem 0;
-      border: 1px solid #bbb;
+      border: 1px solid var(--btn-border);
     }
     h1 {
       font-size: 1.55rem;
@@ -93,21 +105,60 @@
     .lang-current { color: var(--muted); }
     .lang-btn {
       display: inline-block;
-      border: 1px solid #bbb;
+      border: 1px solid var(--btn-border);
       padding: 0.14rem 0.7rem;
       text-decoration: none;
       color: var(--ink);
-      background: #fff;
+      background: var(--bg);
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      cursor: pointer;
     }
     .lang-btn:visited { color: var(--ink); }
     .lang-btn:hover { border-color: var(--ink); }
   </style>
+  <script>
+    (function () {
+      var KEY = 'theme';
+      function stored() {
+        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+      }
+      function save(t) {
+        try { localStorage.setItem(KEY, t); } catch (e) {}
+      }
+      function current() {
+        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      }
+      function apply(t) {
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        else document.documentElement.removeAttribute('data-theme');
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        var dark = t === 'dark';
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        btn.textContent = dark ? btn.getAttribute('data-light') : btn.getAttribute('data-dark');
+      }
+      apply(stored() === 'dark' ? 'dark' : 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        apply(current());
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          save(next);
+          apply(next);
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="wrap">
-    <nav class="lang" aria-label="Language">
+    <nav class="lang" aria-label="Language and appearance">
       <span class="lang-current">English</span>
       <a class="lang-btn" href="ja/" lang="ja" hreflang="ja">日本語</a>
+      <button type="button" class="lang-btn" id="theme-toggle" data-dark="Dark" data-light="Light" aria-pressed="false">Dark</button>
     </nav>
     <header>
       <img class="portrait" src="peter.jpg" alt="Peter Romero" />
@@ -166,6 +217,12 @@
         (Microsoft Research), under Microsoft’s
         <a href="https://www.microsoft.com/en-us/research/academic-program/agentic-ai-research-and-innovation/">Agentic AI Research and Innovation (AARI)</a>
         programme: early-warning and routing for predictable agentic AI on Azure.</li>
+      <li>With researchers at Cambridge and
+        <a href="https://deepmind.google">Google DeepMind</a>
+        I worked on a psychometric framework for evaluating and shaping
+        personality traits in large language models, published in
+        <a href="https://doi.org/10.1038/s42256-025-01115-6"><em>Nature Machine Intelligence</em></a>
+        (<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>).</li>
       <li>A line of work I care about is the distinction between
         <em>capabilities</em> and <em>propensities</em> in AI systems
         (see <a href="https://arxiv.org/abs/2602.18182">Romero-Alvarado et al., 2026</a>).
@@ -232,9 +289,12 @@
     </ul>
     <p>
       Concretely, this has included psychometric evaluation and shaping of
-      personality-like response patterns in language models
-      (<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>;
-      <a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>;
+      personality-like response patterns in language models, with researchers
+      at Cambridge and Google DeepMind, published in
+      <a href="https://doi.org/10.1038/s42256-025-01115-6"><em>Nature Machine Intelligence</em></a>
+      (<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>),
+      and related work
+      (<a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>;
       <a href="https://arxiv.org/abs/2509.16332">Fitz, Romero et al., 2025</a>),
       work on placing model performance on human-anchored scales
       (<a href="https://arxiv.org/abs/2602.18911">Romero et al., 2026</a>),

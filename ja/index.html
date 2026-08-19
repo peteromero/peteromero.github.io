@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Peter Romero</title>
-  <meta name="description" content="Peter Romero — AIの心理測定、AI評価、言語モデルおよびエージェンティックなシステムにおける行動傾向の測定。" />
+  <title>ロメロ　ピーター</title>
+  <meta name="description" content="ロメロ　ピーター — AIの心理測定、AI評価、言語モデルおよびエージェンティックなシステムにおける行動傾向の測定。" />
   <link rel="alternate" hreflang="en" href="https://peteromero.github.io/" />
   <link rel="alternate" hreflang="ja" href="https://peteromero.github.io/ja/" />
   <link rel="alternate" hreflang="x-default" href="https://peteromero.github.io/" />
@@ -15,12 +15,24 @@
       --rule: #ccc;
       --link: #003399;
       --link-visited: #551a8b;
+      --bg: #fff;
+      --btn-border: #bbb;
     }
-    html { font-size: 17px; }
+    html[data-theme="dark"] {
+      --ink: #ece7dc;
+      --muted: #a8a196;
+      --rule: #4a463f;
+      --link: #8fb4ff;
+      --link-visited: #c9a6e8;
+      --bg: #1a1814;
+      --btn-border: #6e695f;
+      color-scheme: dark;
+    }
+    html { font-size: 17px; color-scheme: light; }
     body {
       margin: 0;
       color: var(--ink);
-      background: #fff;
+      background: var(--bg);
       font-family: Palatino, "Palatino Linotype", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", YuMincho, "Noto Serif JP", "Hiragino Kaku Gothic ProN", serif;
       line-height: 1.75;
     }
@@ -37,18 +49,13 @@
       object-fit: cover;
       object-position: 22% 12%;
       margin: 0 0 1rem 0;
-      border: 1px solid #bbb;
+      border: 1px solid var(--btn-border);
     }
     h1 {
       font-size: 1.55rem;
       font-weight: 700;
-      margin: 0 0 0.15rem;
-      letter-spacing: 0.01em;
-    }
-    .name-kana {
-      margin: 0 0 0.45rem;
-      color: var(--muted);
-      font-size: 0.95rem;
+      margin: 0 0 0.35rem;
+      letter-spacing: 0.04em;
     }
     .affil {
       margin: 0 0 0.15rem;
@@ -97,26 +104,64 @@
     .lang-current { color: var(--muted); }
     .lang-btn {
       display: inline-block;
-      border: 1px solid #bbb;
+      border: 1px solid var(--btn-border);
       padding: 0.14rem 0.7rem;
       text-decoration: none;
       color: var(--ink);
-      background: #fff;
+      background: var(--bg);
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      cursor: pointer;
     }
     .lang-btn:visited { color: var(--ink); }
     .lang-btn:hover { border-color: var(--ink); }
   </style>
+  <script>
+    (function () {
+      var KEY = 'theme';
+      function stored() {
+        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+      }
+      function save(t) {
+        try { localStorage.setItem(KEY, t); } catch (e) {}
+      }
+      function current() {
+        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      }
+      function apply(t) {
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        else document.documentElement.removeAttribute('data-theme');
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        var dark = t === 'dark';
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        btn.textContent = dark ? btn.getAttribute('data-light') : btn.getAttribute('data-dark');
+      }
+      apply(stored() === 'dark' ? 'dark' : 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        apply(current());
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var next = current() === 'dark' ? 'light' : 'dark';
+          save(next);
+          apply(next);
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="wrap">
-    <nav class="lang" aria-label="言語">
+    <nav class="lang" aria-label="言語と表示">
       <span class="lang-current">日本語</span>
       <a class="lang-btn" href="../" lang="en" hreflang="en">English</a>
+      <button type="button" class="lang-btn" id="theme-toggle" data-dark="ダーク" data-light="ライト" aria-pressed="false">ダーク</button>
     </nav>
     <header>
-      <img class="portrait" src="../peter.jpg" alt="Peter Romero" />
-      <h1>Peter Romero</h1>
-      <p class="name-kana">ピーター・ロメロ</p>
+      <img class="portrait" src="../peter.jpg" alt="ロメロ　ピーター" />
+      <h1>ロメロ　ピーター</h1>
       <p class="affil"><span class="role">AIサイエンティスト</span>、
         <a href="http://vrain.upv.es">バレンシア人工知能研究所（VRAIN）</a>、
         <a href="http://www.upv.es">バレンシア工科大学</a></p>
@@ -170,6 +215,12 @@
         を提案し、採択を受け、マイクロソフトリサーチの
         <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
         とともに共同で率いています。Azure上のエージェンティックAIを予測可能にするための早期警戒とルーティングです。</li>
+      <li>ケンブリッジと
+        <a href="https://deepmind.google">Google DeepMind</a>
+        の研究者とともに、言語モデルにおけるパーソナリティ特性の評価と形成のための心理測定的枠組みを
+        <a href="https://doi.org/10.1038/s42256-025-01115-6"><em>Nature Machine Intelligence</em></a>
+        に発表しました
+        （<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>）。</li>
       <li>大切にしている研究の一線は、AIシステムにおける<em>能力</em>と<em>傾向</em>の区別です
         （<a href="https://arxiv.org/abs/2602.18182">Romero-Alvarado et al., 2026</a>を参照）。
         リーダーボードの多くは前者を測りますが、安全性に関する問いの多くは後者に依存します。</li>
@@ -197,9 +248,11 @@
         課題の終了を待つと、手遅れになることが少なくありません。推論の痕跡、ツールの使用、相互作用の構造、表現における幾何的・位相的構造といった、軌跡の初期信号が、望ましくないパターンが固まる前のルーティングや中断を支えうるかどうかに関心があります。システムがより自律的になるほど、この問題は先鋭化します。自己調節し、自己改善し、自己進化するエージェントは、実行中に変化します。一回きりのベンチマークは、誤った尺度です。測定は、凍結したチェックポイントにおける能力だけでなく、変化する傾向を追う必要があります。</li>
     </ul>
     <p>
-      具体的には、言語モデルにおけるパーソナリティ様の反応パターンの心理測定的評価と形成
-      （<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>；
-      <a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>；
+      具体的には、ケンブリッジとGoogle DeepMindの研究者とともに
+      <a href="https://doi.org/10.1038/s42256-025-01115-6"><em>Nature Machine Intelligence</em></a>
+      に発表した、言語モデルにおけるパーソナリティ様の反応パターンの心理測定的評価と形成
+      （<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>）、および関連する研究
+      （<a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>；
       <a href="https://arxiv.org/abs/2509.16332">Fitz, Romero et al., 2025</a>）、
       モデルの成績を人間を基準（アンカー）とした尺度へ位置づける研究
       （<a href="https://arxiv.org/abs/2602.18911">Romero et al., 2026</a>）、
@@ -322,7 +375,7 @@
 
     <h2 id="bio">略歴</h2>
     <p>
-      Peter Romeroは、バレンシア工科大学のバレンシア人工知能研究所（VRAIN）のAIサイエンティストであり、
+      ロメロ　ピーターは、バレンシア工科大学のバレンシア人工知能研究所（VRAIN）のAIサイエンティストであり、
       <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
       とともにAIシステムの評価に取り組んでいます。ケンブリッジ大学心理測定センターの研究員、慶應義塾大学の客員研究員でもあります。
     </p>
@@ -338,7 +391,7 @@
     </p>
 
     <footer>
-      Peter Romero, 2026.
+      ロメロ　ピーター, 2026.
     </footer>
   </div>
 </body>
