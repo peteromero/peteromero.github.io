@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peter Romero</title>
+  <meta name="description" content="Peter Romero — AIの心理測定、AI評価、言語モデルおよびエージェンティックなシステムにおける行動傾向の測定。" />
+  <link rel="alternate" hreflang="en" href="https://peteromero.github.io/" />
+  <link rel="alternate" hreflang="ja" href="https://peteromero.github.io/ja/" />
+  <link rel="alternate" hreflang="x-default" href="https://peteromero.github.io/" />
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #444;
+      --rule: #ccc;
+      --link: #003399;
+      --link-visited: #551a8b;
+    }
+    html { font-size: 17px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: Palatino, "Palatino Linotype", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", YuMincho, "Noto Serif JP", "Hiragino Kaku Gothic ProN", serif;
+      line-height: 1.75;
+    }
+    .wrap {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.6rem 1.2rem 3.5rem;
+    }
+    header { text-align: left; }
+    .portrait {
+      display: block;
+      width: 168px;
+      height: 210px;
+      object-fit: cover;
+      object-position: 22% 12%;
+      margin: 0 0 1rem 0;
+      border: 1px solid #bbb;
+    }
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin: 0 0 0.15rem;
+      letter-spacing: 0.01em;
+    }
+    .name-kana {
+      margin: 0 0 0.45rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .affil {
+      margin: 0 0 0.15rem;
+      font-size: 0.98rem;
+    }
+    .affil .role { font-weight: 700; }
+    .contact, .nav, .ids {
+      margin: 0.85rem 0 0;
+    }
+    .nav {
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav a { margin-right: 0.85rem; }
+    a { color: var(--link); }
+    a:visited { color: var(--link-visited); }
+    h2 {
+      font-size: 1.12rem;
+      margin: 1.8rem 0 0.55rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid var(--rule);
+      letter-spacing: 0.06em;
+    }
+    p { margin: 0.55rem 0 0.7rem; }
+    ul { margin: 0.35rem 0 0.7rem 1.15rem; padding: 0; }
+    li { margin: 0.35rem 0; }
+    .note { color: var(--muted); font-size: 0.95rem; }
+    .cite { margin: 0.55rem 0 0.85rem; }
+    .cite .title { font-style: italic; }
+    footer {
+      margin-top: 2.4rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .lang {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      margin: 0 0 0.85rem;
+    }
+    .lang-current { color: var(--muted); }
+    .lang-btn {
+      display: inline-block;
+      border: 1px solid #bbb;
+      padding: 0.14rem 0.7rem;
+      text-decoration: none;
+      color: var(--ink);
+      background: #fff;
+    }
+    .lang-btn:visited { color: var(--ink); }
+    .lang-btn:hover { border-color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="lang" aria-label="言語">
+      <span class="lang-current">日本語</span>
+      <a class="lang-btn" href="../" lang="en" hreflang="en">English</a>
+    </nav>
+    <header>
+      <img class="portrait" src="../peter.jpg" alt="Peter Romero" />
+      <h1>Peter Romero</h1>
+      <p class="name-kana">ピーター・ロメロ</p>
+      <p class="affil"><span class="role">AIサイエンティスト</span>、
+        <a href="http://vrain.upv.es">バレンシア人工知能研究所（VRAIN）</a>、
+        <a href="http://www.upv.es">バレンシア工科大学</a></p>
+      <p class="affil"><span class="role">研究員</span>、
+        <a href="https://www.psychometrics.cam.ac.uk/people/dr-peter-romero">心理測定センター</a>、
+        <a href="https://www.cam.ac.uk">ケンブリッジ大学</a></p>
+      <p class="affil"><span class="role">客員研究員</span>、
+        <a href="https://www.keio.ac.jp/en/">慶應義塾大学</a></p>
+      <p class="contact">
+        指導教員：
+        <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a><br />
+        メール：
+        <a href="mailto:prr28@cam.ac.uk">prr28@cam.ac.uk</a>
+      </p>
+      <p class="ids">
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=_zbBopsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>
+        &nbsp;·&nbsp;
+        <a href="../cv.pdf">CV</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.psychometrics.cam.ac.uk/people/dr-peter-romero">ケンブリッジのプロフィール</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/peterromero">LinkedIn</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/peteromero">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://x.com/PeterRomero">X</a>
+        &nbsp;·&nbsp;
+        <a href="https://bsky.app/profile/promero.bsky.social">Bluesky</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/prrs666">Instagram</a>
+      </p>
+      <nav class="nav">
+        <a href="#status">近況</a>
+        <a href="#research">研究</a>
+        <a href="#agentguard">AgentGuard</a>
+        <a href="#publications">論文</a>
+        <a href="#teaching">教育</a>
+        <a href="#bio">略歴</a>
+      </nav>
+    </header>
+
+    <h2 id="status">近況</h2>
+    <ul>
+      <li><a href="http://vrain.upv.es">VRAIN</a>では、
+        <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
+        とともにAI評価に取り組んでいます。言語モデルやエージェンティックなシステムの課題成績だけでなく、その行動傾向をどう測定するかが主題です。</li>
+      <li>マイクロソフトの
+        <a href="https://www.microsoft.com/en-us/research/academic-program/agentic-ai-research-and-innovation/">Agentic AI Research and Innovation（AARI）</a>
+        プログラムのもと、
+        <a href="https://www.microsoft.com/en-us/research/project/agentguard-early-warning-and-routing-for-predictable-agenticai-on-azure/">AgentGuard</a>
+        を提案し、採択を受け、マイクロソフトリサーチの
+        <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
+        とともに共同で率いています。Azure上のエージェンティックAIを予測可能にするための早期警戒とルーティングです。</li>
+      <li>大切にしている研究の一線は、AIシステムにおける<em>能力</em>と<em>傾向</em>の区別です
+        （<a href="https://arxiv.org/abs/2602.18182">Romero-Alvarado et al., 2026</a>を参照）。
+        リーダーボードの多くは前者を測りますが、安全性に関する問いの多くは後者に依存します。</li>
+      <li>ケンブリッジでは、主に教育を通じて、
+        <a href="#people-analytics">ピープルアナリティクス</a>
+        の応用も細く続けています。</li>
+    </ul>
+
+    <h2 id="research">研究</h2>
+    <p>
+      研究の主題は測定です。信頼性、構成概念妥当性、項目反応モデルをはじめとする心理測定の方法を、大規模言語モデルとエージェンティックなシステムに適用しています。対象が質問紙ではなく表現や確率幾何である場合には、代数的トポロジーと情報幾何も用います
+      （<a href="https://arxiv.org/abs/2406.05798">Fitz, Romero &amp; Schneider, 2024</a>）。
+      モデルを人として扱うことが目的ではありません。擬人化はこの分野の恒常的な問題です。関心があるのは<em>基質非依存</em>の心理測定です。人間の心を前提とせず、人工・ハイブリッド・人間の各システムに対して正当化できる尺度と構成概念です
+      （<a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>）。
+      目指すのは、傾向、リスク、介入についての主張を支えうるほど安定した測定です。
+    </p>
+    <p>研究の大部分は、次の三つの区別で整理されます。</p>
+    <ul>
+      <li><strong>能力対傾向。</strong>
+        ベンチマークは通常、ある試験手続きのもとでシステムが何を<em>できるか</em>を記録します。安全に関わる行動は、しばしば何を<em>しがちか</em>に依存します。欺瞞、過信、迎合、目標の防衛、およびそれに類する傾向です。エージェントにおいては、そうした傾向は静的なプロフィールではありません。時間とともに変化し、階層をなし、相互作用を通じて波及します。一方のエージェントの性向が、他方のエージェントの環境になるのです。それは、仕事にとってもAI安全性にとっても、測定の問題です。より長い時間尺度では、選択の問題でもあります。行動傾向を変異させ、保持し、増幅する自律システムは、人間と機械の生態系に新たな進化圧を及ぼします。人間の潜在特性に心理測定学が向けたのと同じ真剣さで、これらの傾向を測る研究をしています。ただし、人間の特性目録を既定として写すことはしません。</li>
+      <li><strong>単一システム対集団。</strong>
+        モデルが互いに、また人と相互作用するエージェントとして配備されると、リスクの一部は個々のエージェントの属性ではなくなります。協調、結託に類する振る舞い、それに関連する集合的パターンは、個体水準だけでなく集団水準でも測る必要があります。これにはハイブリッドなシステム（同一のループにおける人間と人工エージェント）と、そうした集団の進化動態も含まれます。エージェントが互いに適応するとき、構成、規範、戦略がどう変化するかです
+        （<a href="https://arxiv.org/abs/2605.17510">Horibe et al., 2026</a>）。</li>
+      <li><strong>遅い失敗対早期警戒。</strong>
+        課題の終了を待つと、手遅れになることが少なくありません。推論の痕跡、ツールの使用、相互作用の構造、表現における幾何的・位相的構造といった、軌跡の初期信号が、望ましくないパターンが固まる前のルーティングや中断を支えうるかどうかに関心があります。システムがより自律的になるほど、この問題は先鋭化します。自己調節し、自己改善し、自己進化するエージェントは、実行中に変化します。一回きりのベンチマークは、誤った尺度です。測定は、凍結したチェックポイントにおける能力だけでなく、変化する傾向を追う必要があります。</li>
+    </ul>
+    <p>
+      具体的には、言語モデルにおけるパーソナリティ様の反応パターンの心理測定的評価と形成
+      （<a href="https://doi.org/10.1038/s42256-025-01115-6">Serapio-García et al., 2025</a>；
+      <a href="https://arxiv.org/abs/2408.07377">Romero, Fitz &amp; Nakatsuma, 2024</a>；
+      <a href="https://arxiv.org/abs/2509.16332">Fitz, Romero et al., 2025</a>）、
+      モデルの成績を人間を基準（アンカー）とした尺度へ位置づける研究
+      （<a href="https://arxiv.org/abs/2602.18911">Romero et al., 2026</a>）、
+      相互作用するLLMエージェントにおける集合的適応の研究
+      （<a href="https://arxiv.org/abs/2605.17510">Horibe et al., 2026</a>）
+      などが含まれます。現在の応用の場は
+      <a href="#agentguard">AgentGuard</a>
+      です。今後は、自らを調節し、改善し、進化させるエージェンティックなシステムの評価に、さらに特化したいと考えています。
+    </p>
+    <p>
+      所属はプロダクトラボではなく、AI評価のグループです。デモが印象的かどうかよりも、主張が測定可能かどうかに関心があります。
+    </p>
+
+    <h2 id="agentguard">AgentGuard</h2>
+    <p>
+      <strong>AgentGuard</strong>は、私が提案し、マイクロソフトの
+      <a href="https://www.microsoft.com/en-us/research/academic-program/agentic-ai-research-and-innovation/">Agentic AI Research and Innovation（AARI）</a>
+      プログラムで採択され、マイクロソフトリサーチの
+      <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
+      とともに共同で率いているプロジェクトです。公式ページ：
+      <a href="https://www.microsoft.com/en-us/research/project/agentguard-early-warning-and-routing-for-predictable-agenticai-on-azure/">Early-Warning and Routing for Predictable Agentic AI on Azure</a>。
+    </p>
+    <p>
+      問題を述べるのは簡単で、測るのは難しいです。エージェンティックなシステムはトークンを消費し、ツールを呼び、ときに遅く失敗します。AgentGuardが問うのは、軌跡の前半に、残りを予測する十分な情報がすでに含まれているかどうかです。うまくいっていないものを止め、別のエージェント、別の計画、あるいは人間へルーティングすることです。評価の側は、単一のリーダーボード得点ではなく、
+      <a href="https://kinds-of-intelligence-cfi.github.io/ADELE/">ADeLe</a>
+      を通じた需要に応じた評価です。
+    </p>
+    <p>
+      担当は測定の層です。早期警戒が役立つのは、信号が実在するものに対応している場合に限られます。個々の行動傾向、そして複数のエージェントが共に動くときの集団水準のパターン——ハイブリッドなチームを含めて——です。これは工学の問題であると同時に、心理測定の問題です。信頼性、妥当性、そして得点がホールドアウト課題における行動を予測するかどうか。あたかも普遍的なオントロジーであるかのように、人間のパーソナリティ検査を滑り込ませることなく。チーム編成は、能力評定の一覧ではありません。傾向は変化し、重なり、伝播しえます。チーム内の進化動態は後付けではなく、測るべき対象の一部です。
+    </p>
+    <p>
+      本プロジェクトは、
+      <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
+      およびVRAIN / バレンシア工科大学、東京大学、理化学研究所、マイクロソフトリサーチの同僚との共同研究です。
+    </p>
+
+    <h2 id="publications">主な論文</h2>
+    <p class="note">
+      より完全で新しい一覧は
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=_zbBopsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a>
+      にあります。プレプリントはその旨を記しています。
+    </p>
+
+    <p class="cite">
+      Serapio-García, G., Safdari, M., Crepy, C., Sun, L., Fitz, S.,
+      Romero, P., Abdulhai, M., Faust, A., and Matarić, M. (2025).
+      <a class="title" href="https://doi.org/10.1038/s42256-025-01115-6">A psychometric framework for evaluating and shaping personality traits in large language models</a>.
+      <em>Nature Machine Intelligence</em>, 7, 1954–1968.
+    </p>
+    <p class="cite">
+      Romero-Alvarado, D., Martínez-Plumed, F., Pacchiardi, L., Save, H.,
+      Pawar, S. M., et al. (2026).
+      <a class="title" href="https://arxiv.org/abs/2602.18182">Capabilities ain't all you need: measuring propensities in AI</a>.
+      arXiv:2602.18182. プレプリント.
+    </p>
+    <p class="cite">
+      Romero, P., Martínez-Plumed, F., Tidler, Z. R., Téhénan, M., Chen, S., et al. (2026).
+      <a class="title" href="https://arxiv.org/abs/2602.18911">From human-level AI tales to AI leveling human scales</a>.
+      arXiv:2602.18911. プレプリント.
+    </p>
+    <p class="cite">
+      Horibe, K., Hatakeyama, M., Masumoto, G., Hashimoto, T., and Romero, P. (2026).
+      <a class="title" href="https://arxiv.org/abs/2605.17510">Scale-dependent collective adaptation in self-amending LLM societies: a cross-family study of emergent governance</a>.
+      arXiv:2605.17510. プレプリント.
+    </p>
+    <p class="cite">
+      Fitz, S., Romero, P., Basart, S., Chen, S., and Hernández-Orallo, J. (2025).
+      <a class="title" href="https://arxiv.org/abs/2509.16332">Psychometric personality shaping modulates capabilities and safety in language models</a>.
+      arXiv:2509.16332. プレプリント.
+    </p>
+    <p class="cite">
+      Romero, P., Fitz, S., and Nakatsuma, T. (2024).
+      <a class="title" href="https://arxiv.org/abs/2408.07377">Do GPT language models suffer from split personality disorder? The advent of substrate-free psychometrics</a>.
+      arXiv:2408.07377. プレプリント.
+    </p>
+    <p class="cite">
+      Fitz, S., Romero, P., and Schneider, J. J. (2024).
+      <a class="title" href="https://arxiv.org/abs/2406.05798">Hidden holes: topological aspects of language models</a>.
+      arXiv:2406.05798. プレプリント.
+    </p>
+    <p class="cite">
+      Izzidien, A., Fitz, S., Romero, P., Loe, B. S., and Stillwell, D. (2023).
+      <a class="title" href="https://doi.org/10.1007/s42803-022-00049-4">Developing a sentence-level fairness metric using word embeddings</a>.
+      <em>International Journal of Digital Humanities</em>, 5(2–3), 95–130.
+    </p>
+    <p class="cite">
+      Koch, T. K., Romero, P., and Stachl, C. (2022).
+      <a class="title" href="https://doi.org/10.1016/j.chb.2021.106990">Age and gender in language, emoji, and emoticon usage in instant messages</a>.
+      <em>Computers in Human Behavior</em>, 126, 106990.
+    </p>
+    <p class="cite">
+      Romero, P., and Fitz, S. (2021).
+      The use of psychometrics and artificial intelligence in alternative finance.
+      In <em>The Palgrave Handbook of Technological Finance</em>, 511–587.
+    </p>
+    <p class="cite">
+      Fitz, S., and Romero, P. (2021).
+      Neural networks and deep learning: a paradigm shift in information processing, machine learning, and artificial intelligence.
+      In <em>The Palgrave Handbook of Technological Finance</em>, 589–654.
+    </p>
+
+    <h2 id="teaching">教育</h2>
+    <ul>
+      <li>ケンブリッジ・ジャッジ・ビジネススクールのエグゼクティブ・エデュケーションにて、
+        <a href="https://www.jbs.cam.ac.uk/executive-education/organisations/people-analytics/">People Analytics: Transforming HR Strategy with Data Science</a>
+        を設計し、担当しています。</li>
+      <li><a href="https://www.tu-darmstadt.de/">ダルムシュタット工科大学</a>
+        にて、アセスメント方法論。</li>
+      <li><a href="https://www.keio.ac.jp/en/">慶應義塾大学</a>
+        にて、データ構造、アルゴリズム、プログラミング。</li>
+    </ul>
+
+    <h2 id="people-analytics">ピープルアナリティクス</h2>
+    <p>
+      AI評価に重心を移す以前は、組織における測定——応用場面での心理測定、アセスメント設計、ピープルアナリティクス——に長く携わっていました。その内容は今もケンブリッジで教えており、助言をすることもあります。研究の中心ではなく、隣接する技、すなわち制度の中で人をどう測るか、として位置づけています。
+    </p>
+    <p>
+      残したい結びつきは方法論です。妥当性の論拠を欠いた得点は、ダッシュボード付きの数字にすぎないということを、組織の現場が教えてくれました。それはAI評価の問題でもあります。
+    </p>
+
+    <h2 id="bio">略歴</h2>
+    <p>
+      Peter Romeroは、バレンシア工科大学のバレンシア人工知能研究所（VRAIN）のAIサイエンティストであり、
+      <a href="https://josephorallo.webs.upv.es/">José Hernández-Orallo</a>
+      とともにAIシステムの評価に取り組んでいます。ケンブリッジ大学心理測定センターの研究員、慶應義塾大学の客員研究員でもあります。
+    </p>
+    <p>
+      慶應義塾大学にてベイズ統計学の博士号、ケンブリッジ大学にて心理測定学のMPhil、ハンブルク大学にてDiplom-Psychologe（修士相当）を取得しています。現在の研究は、言語モデルとエージェンティックなシステムのための心理測定法です。人間の特性目録を既定として持ち込むのではなく、基質非依存の形で行動傾向を測り、その測定を早期警戒とルーティングに用いることです。
+      <a href="https://www.microsoft.com/en-us/research/project/agentguard-early-warning-and-routing-for-predictable-agenticai-on-azure/">AgentGuard</a>
+      を提案し、採択を受け、マイクロソフトリサーチの
+      <a href="https://www.microsoft.com/en-us/research/people/haotianli/">Haotian Li</a>
+      とともに共同で率いています。今後は、自己調節し、自己改善し、自己進化する自律エージェントの評価に、さらに注力したいと考えています。応用ピープルアナリティクスにはより長い経歴があり、現在は副次的な活動です。
+    </p>
+    <p>
+      <a href="../cv.pdf">履歴書（PDF）</a>
+    </p>
+
+    <footer>
+      Peter Romero, 2026.
+    </footer>
+  </div>
+</body>
+</html>

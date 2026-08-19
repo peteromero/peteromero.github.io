@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Peter Romero</title>
   <meta name="description" content="Peter Romero — psychometrics of AI, AI evaluation, and the measurement of behavioural propensities in language models and agentic systems." />
+  <link rel="alternate" hreflang="en" href="https://peteromero.github.io/" />
+  <link rel="alternate" hreflang="ja" href="https://peteromero.github.io/ja/" />
+  <link rel="alternate" hreflang="x-default" href="https://peteromero.github.io/" />
   <style>
     :root {
       --ink: #111;
@@ -79,10 +82,33 @@
       font-size: 0.88rem;
       color: var(--muted);
     }
+    .lang {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      margin: 0 0 0.85rem;
+    }
+    .lang-current { color: var(--muted); }
+    .lang-btn {
+      display: inline-block;
+      border: 1px solid #bbb;
+      padding: 0.14rem 0.7rem;
+      text-decoration: none;
+      color: var(--ink);
+      background: #fff;
+    }
+    .lang-btn:visited { color: var(--ink); }
+    .lang-btn:hover { border-color: var(--ink); }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <nav class="lang" aria-label="Language">
+      <span class="lang-current">English</span>
+      <a class="lang-btn" href="ja/" lang="ja" hreflang="ja">日本語</a>
+    </nav>
     <header>
       <img class="portrait" src="peter.jpg" alt="Peter Romero" />
       <h1>Peter Romero</h1>
